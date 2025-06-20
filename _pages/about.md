@@ -17,9 +17,9 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I’m Sheng Zhong 🧑‍💻, currently pursuing a Master’s degree in Computer Science at HUST. 🎓
+I’m Sheng Zhong, currently pursuing a Master’s degree in Computer Science at HUST.
 
-My primary research focus is on Edge Intelligence. I’m passionate about exploring cutting-edge technologies in artificial intelligence and edge computing, and I’m always eager to learn new things and collaborate with like-minded individuals. 🌱
+My primary research focus is on Edge Intelligence. I’m passionate about exploring cutting-edge technologies in artificial intelligence and edge computing, and I’m always eager to learn new things and collaborate with like-minded individuals.
 
 
 <!-- # 🔥 News
@@ -46,7 +46,7 @@ My primary research focus is on Edge Intelligence. I’m passionate about explor
 - *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
 
-# 📖 Educations
+# Educations
 - *2024.09 - 2025.06*, Master, HUST, Wuhan.
 - *2020.09 - 2024.06*, Undergraduate, HUST, Wuhan.
 
