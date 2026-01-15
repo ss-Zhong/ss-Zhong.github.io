@@ -21,6 +21,10 @@ I’m Sheng Zhong, currently pursuing a PhD in Artificial Intelligence at Huazho
 
 My primary research focus is on Edge Intelligence. I am passionate about exploring cutting-edge technologies at the intersection of artificial intelligence and edge computing. I’m always eager to learn new things, tackle challenging problems, and collaborate with like-minded researchers.
 
+# 🎓 Educations
+- *2025.06 - Now*, PhD, HUST, Artificial Intelligence and Automation
+- *2024.09 - 2025.06*, Master, HUST, Computer Science and Technology
+- *2020.09 - 2024.06*, Bachelor, HUST, Computer Science and Technology
 
 # 🔥 News
 - *2026.01*: &nbsp;🎉🎉 Glasses has been accepted to The Web Conference 2026
@@ -28,7 +32,12 @@ My primary research focus is on Edge Intelligence. I am passionate about explori
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">WWW 2026</div><img src='images/Glasses.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'>
+  <div>
+    <div class="badge">WWW 2026</div>
+    <img src='images/Glasses.png' alt="sym" width="100%">
+  </div>
+</div>
 <div class='paper-box-text' markdown="1">
 
 [Glasses: Enabling Fast Environment-aware Few-Shot Learning via Device-Cloud Collaboration](xxx)
@@ -46,10 +55,6 @@ Qiang He, **Sheng Zhong**, Jiazhen Yang, Feifei Chen, Hai Jin, Yun Yang
 - *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
 
-# Educations
-- *2025.06 - Now*, PhD, HUST, Artificial Intelligence and Automation
-- *2024.09 - 2025.06*, Master, HUST, Computer Science and Technology
-- *2020.09 - 2024.06*, Bachelor, HUST, Computer Science and Technology
 
 <!-- # 💬 Invited Talks
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
