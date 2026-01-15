@@ -33,8 +33,8 @@ My primary research focus is on Edge Intelligence. I am passionate about explori
 # 📝 Publications 
 
 <div class='paper-box'><div class='paper-box-image'>
-  <div>
-    <div class="badge">WWW 2026</div>
+  <div class="badge-wrapper">
+    <div class="badge fade-in-up stagger-delay-2">WWW 2026</div>
     <img src='images/Glasses.png' alt="sym" width="100%">
   </div>
 </div>

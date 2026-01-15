@@ -107,3 +107,18 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
+
+.badge-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.fade-in-up {
+    -webkit-animation: fadeInUp 0.6s ease-out forwards;
+            animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.stagger-delay-2 {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+}
