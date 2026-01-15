@@ -95,4 +95,27 @@ $(document).ready(function(){
     midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
   });
 
+  // Scroll animations
+  var animateOnScroll = function() {
+    var elements = document.querySelectorAll('.animate-on-scroll');
+    
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    elements.forEach(function(element) {
+      observer.observe(element);
+    });
+  };
+  
+  // Initialize scroll animations
+  animateOnScroll();
+
 });

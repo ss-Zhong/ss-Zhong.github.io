@@ -1,21 +1,177 @@
 /* ==========================================================================
-   ANIMATIONS
+   ANIMATIONS - Apple Style
    ========================================================================== */
 
-@-webkit-keyframes intro {
-  0% {
+@-webkit-keyframes fadeIn {
+  from {
     opacity: 0;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
   }
-  100% {
+  to {
     opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 
-@keyframes intro {
-  0% {
+@keyframes fadeIn {
+  from {
     opacity: 0;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
   }
-  100% {
+  to {
     opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes slideInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+            transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes scaleIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.02);
+            transform: scale(1.02);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.02);
+            transform: scale(1.02);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.fade-in {
+  -webkit-animation: fadeIn 0.6s ease-out forwards;
+          animation: fadeIn 0.6s ease-out forwards;
+}
+
+.fade-in-up {
+  -webkit-animation: fadeInUp 0.8s ease-out forwards;
+          animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.slide-in-left {
+  -webkit-animation: slideInLeft 0.6s ease-out forwards;
+          animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.scale-in {
+  -webkit-animation: scaleIn 0.5s ease-out forwards;
+          animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  -webkit-transition: opacity 0.6s ease-out, -webkit-transform 0.6s ease-out;
+  transition: opacity 0.6s ease-out, -webkit-transform 0.6s ease-out;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, -webkit-transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.stagger-delay-1 { -webkit-animation-delay: 0.1s; animation-delay: 0.1s; }
+.stagger-delay-2 { -webkit-animation-delay: 0.2s; animation-delay: 0.2s; }
+.stagger-delay-3 { -webkit-animation-delay: 0.3s; animation-delay: 0.3s; }
+.stagger-delay-4 { -webkit-animation-delay: 0.4s; animation-delay: 0.4s; }
+.stagger-delay-5 { -webkit-animation-delay: 0.5s; animation-delay: 0.5s; }

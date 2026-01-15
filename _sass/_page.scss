@@ -8,8 +8,11 @@
   margin-top: 1em;
   padding-left: 1em;
   padding-right: 1em;
-  animation: intro 0.3s both;
-  animation-delay: 0.35s;
+  opacity: 0;
+  -webkit-animation: fadeInUp 0.8s ease-out forwards;
+          animation: fadeInUp 0.8s ease-out forwards;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
 
   @include breakpoint($x-large) {
     max-width: $x-large;
@@ -17,6 +20,12 @@
 }
 
 .page {
+  opacity: 0;
+  -webkit-animation: fadeInUp 0.8s ease-out forwards;
+          animation: fadeInUp 0.8s ease-out forwards;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  
   @include breakpoint($large) {
     @include span(10 of 12 last);
     @include prefix(0.5 of 12);
@@ -122,8 +131,11 @@
   position: relative;
   margin-bottom: 2em;
   @include clearfix;
-  animation: intro 0.3s both;
-  animation-delay: 0.25s;
+  opacity: 0;
+  -webkit-animation: fadeInUp 0.8s ease-out forwards;
+          animation: fadeInUp 0.8s ease-out forwards;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
 
   &--overlay {
     position: relative;
@@ -133,8 +145,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    animation: intro 0.3s both;
-    animation-delay: 0.25s;
+    opacity: 0;
+    -webkit-animation: fadeInUp 0.8s ease-out forwards;
+            animation: fadeInUp 0.8s ease-out forwards;
+    -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
 
     a {
       color: #fff;
