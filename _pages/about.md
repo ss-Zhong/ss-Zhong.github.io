@@ -28,7 +28,6 @@ My primary research focus is on Edge Intelligence. I am passionate about explori
 
 # 🔥 News
 - *2026.01*: &nbsp;🎉🎉 *Glasses* has been accepted to The Web Conference 2026
-<!-- - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
 
 # 📝 Publications 
 <div class='paper-box'>
@@ -39,18 +38,18 @@ My primary research focus is on Edge Intelligence. I am passionate about explori
       <img src='images/Glasses.png' alt="sym" width="100%">
     </div>
   </div>
+
   <div class='paper-box-text' markdown="1">
     [Glasses: Enabling Fast Environment-aware Few-Shot Learning via Device-Cloud Collaboration](xxx)
+
     Qiang He, **Sheng Zhong**, Jiazhen Yang, Feifei Chen, Hai Jin, Yun Yang
-    <!-- <strong>
-      <span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'>
-      </span>
-    </strong> -->
+
     - Code: [https://github.com/CGCL-codes/Glasses](https://github.com/CGCL-codes/Glasses)
     - Dataset: [https://github.com/ss-Zhong/Focura](https://github.com/ss-Zhong/Focura)
-    </div>
-</div>
+  </div>
 
+</div>
+<!-- <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong> -->
 <!-- # 🎖 Honors and Awards
 - *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
