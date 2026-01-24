@@ -31,7 +31,6 @@ My primary research focus is on Edge Intelligence. I am passionate about explori
 <!-- - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
 
 # 📝 Publications 
-
 <div class='paper-box'><div class='paper-box-image'>
   <div class="badge-wrapper">
     <div class="badge fade-in-up stagger-delay-2">WWW 2026</div>
@@ -44,12 +43,11 @@ My primary research focus is on Edge Intelligence. I am passionate about explori
 
 Qiang He, **Sheng Zhong**, Jiazhen Yang, Feifei Chen, Hai Jin, Yun Yang
 
-<!-- [**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
-</div>
+**Project**
+ <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+- Code: [https://github.com/CGCL-codes/Glasses](https://github.com/CGCL-codes/Glasses)
+- Dataset: [https://github.com/ss-Zhong/Focura](https://github.com/ss-Zhong/Focura)
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020** -->
 
 <!-- # 🎖 Honors and Awards
 - *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
