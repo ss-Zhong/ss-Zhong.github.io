@@ -43,7 +43,6 @@ My primary research focus is on Edge Intelligence. I am passionate about explori
 
 Qiang He, **Sheng Zhong**, Jiazhen Yang, Feifei Chen, Hai Jin, Yun Yang
 
-**Release**
 <!-- <strong>
   <span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'>
   </span>
