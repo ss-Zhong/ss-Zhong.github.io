@@ -66,11 +66,6 @@
         max-width: 100%;
         order: 2;
     }
-
-    // Remove any extra top gap from the first element in image
-    .paper-box-image > *:first-child {
-        margin-top: 0;
-    }
     
     @include breakpoint($medium) {
         .paper-box-image{
