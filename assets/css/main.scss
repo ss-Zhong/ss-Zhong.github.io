@@ -47,7 +47,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     border-bottom: 1px #efefef solid;
-    padding: 1em 0 2em 0;
+    padding: 1em 0 1em 0;
     
 
     .paper-box-image{
@@ -67,8 +67,8 @@
         order: 2;
     }
 
-    // Remove any extra top gap from the first element in text
-    .paper-box-text > *:first-child {
+    // Remove any extra top gap from the first element in image
+    .paper-box-image > *:first-child {
         margin-top: 0;
     }
     
