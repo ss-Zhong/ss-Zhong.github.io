@@ -54,7 +54,7 @@
         justify-content: center;
         display: flex;
         width: 100%;
-        order: 1;
+        order: 2;
         img {
             max-width: 400px;
             box-shadow: 3px 3px 6px #888;
@@ -64,8 +64,8 @@
     
     .paper-box-text{
         max-width: 100%;
-        order: 2;
-        margin-top: 1em;
+        order: 1;
+        // margin-top: 1em;
     }
     
     @include breakpoint($medium) {
