@@ -38,18 +38,15 @@ My primary research focus is on Edge Intelligence. I am passionate about explori
   </div>
 </div>
 <div class='paper-box-text' markdown="1">
-
 [Glasses: Enabling Fast Environment-aware Few-Shot Learning via Device-Cloud Collaboration](xxx)
-
 Qiang He, **Sheng Zhong**, Jiazhen Yang, Feifei Chen, Hai Jin, Yun Yang
-
 <!-- <strong>
   <span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'>
   </span>
 </strong> -->
 - Code: [https://github.com/CGCL-codes/Glasses](https://github.com/CGCL-codes/Glasses)
 - Dataset: [https://github.com/ss-Zhong/Focura](https://github.com/ss-Zhong/Focura)
-
+</div>
 
 <!-- # 🎖 Honors and Awards
 - *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
