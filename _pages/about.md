@@ -27,7 +27,7 @@ My primary research focus is on Edge Intelligence. I am passionate about explori
 - *2020.09 - 2024.06*, Bachelor, HUST, Computer Science and Technology
 
 # 🔥 News
-- *2026.01*: &nbsp;🎉🎉 Glasses has been accepted to The Web Conference 2026
+- *2026.01*: &nbsp;🎉🎉 *Glasses* has been accepted to The Web Conference 2026
 <!-- - *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  -->
 
 # 📝 Publications 
@@ -43,8 +43,11 @@ My primary research focus is on Edge Intelligence. I am passionate about explori
 
 Qiang He, **Sheng Zhong**, Jiazhen Yang, Feifei Chen, Hai Jin, Yun Yang
 
-**Project**
- <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
+**Release**
+<!-- <strong>
+  <span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'>
+  </span>
+</strong> -->
 - Code: [https://github.com/CGCL-codes/Glasses](https://github.com/CGCL-codes/Glasses)
 - Dataset: [https://github.com/ss-Zhong/Focura](https://github.com/ss-Zhong/Focura)
 
