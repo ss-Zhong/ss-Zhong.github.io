@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sheng Zhong's Homepage</title>
+  <meta name="description" content="Edge Intelligence Research">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Source Sans 3', 'Lato', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              50: '#fef2f2',
+              100: '#fee2e2',
+              200: '#fecaca',
+              300: '#fca5a5',
+              400: '#f87171',
+              500: '#961e33',
+              600: '#7c1a2a',
+              700: '#641522',
+            },
+            accent: {
+              400: '#b8283f',
+              500: '#961e33',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom styles */
+    body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Particle canvas */
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 32px rgba(150, 30, 51, 0.06);
+    }
+
+    .glass-card-navi {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 32px rgba(150, 30, 51, 0.06);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #961e33 0%, #b8283f 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #961e33 0%, #b8283f 100%);
+    }
+
+    /* Animations */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+
+    /* Hover effects */
+    .hover-card {
+      transition: all 0.3s ease;
+    }
+
+    .hover-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(150, 30, 51, 0.15);
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Scroll offset for fixed nav */
+    section[id] {
+      scroll-margin-top: 100px;
+    }
+
+    /* Nav active state */
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #961e33 0%, #b8283f 100%);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Timeline styling */
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #961e33 0%, #b8283f 100%);
+      box-shadow: 0 0 0 4px rgba(150, 30, 51, 0.2);
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 24px;
+      width: 2px;
+      height: calc(100% - 16px);
+      background: linear-gradient(to bottom, #fca5a5, transparent);
+    }
+
+    .timeline-item:last-child::after {
+      display: none;
+    }
+
+    /* Badge styling */
+    .badge {
+      background: linear-gradient(135deg, #961e33 0%, #b8283f 100%);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(150, 30, 51, 0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(150, 30, 51, 0); }
+    }
+  </style>
+</head>
+<body class="font-sans text-slate-800">
+  <!-- Particle Background -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-card-navi" style="z-index: 50;">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <!-- <a href="#about" class="text-lg font-semibold gradient-text">Sheng Zhong</a> -->
+        <div class="flex gap-8">
+          <a href="#about" class="nav-link text-slate-600 hover:text-primary-500 transition-colors">About</a>
+          <a href="#education" class="nav-link text-slate-600 hover:text-primary-500 transition-colors">Education</a>
+          <a href="#news" class="nav-link text-slate-600 hover:text-primary-500 transition-colors">News</a>
+          <a href="#publications" class="nav-link text-slate-600 hover:text-primary-500 transition-colors">Publications</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-6 pt-24 pb-12 relative z-10">
+    <div class="grid lg:grid-cols-3 gap-8">
+
+      <!-- Left Sidebar - Profile -->
+      <aside class="lg:col-span-1">
+        <div class="glass-card rounded-2xl p-8 text-center hover-card fade-in-up stagger-1 sticky top-24">
+          <!-- Avatar -->
+          <div class="w-32 h-32 mx-auto mb-6 rounded-full gradient-bg p-1">
+            <div class="w-full h-full rounded-full bg-white flex items-center justify-center text-4xl font-bold gradient-text">
+              S
+            </div>
+          </div>
+
+          <!-- Name -->
+          <h1 class="text-2xl font-bold text-slate-800 mb-2">Sheng Zhong</h1>
+          <p class="text-lg text-slate-500 mb-4">钟 晟</p>
+
+          <!-- Research Interest -->
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 text-primary-600 text-sm font-medium mb-6">
+            <i class="fas fa-microchip"></i>
+            Edge Intelligence
+          </div>
+
+          <!-- Location -->
+          <p class="text-slate-500 mb-6">
+            <i class="fas fa-map-marker-alt mr-2"></i>
+            Wuhan, China
+          </p>
+
+          <!-- Social Links -->
+          <div class="flex justify-center gap-4">
+            <a href="mailto:shengzhong@hust.edu.cn" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-600 hover:text-primary-500 hover-card">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://github.com/ss-Zhong" target="_blank" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-600 hover:text-primary-500 hover-card">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://orcid.org/0009-0000-5040-1468" target="_blank" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-slate-600 hover:text-primary-500 hover-card">
+              <i class="fab fa-orcid"></i>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Content -->
+      <div class="lg:col-span-2 space-y-8">
+
+        <!-- About Me -->
+        <section id="about" class="glass-card rounded-2xl p-8 hover-card fade-in-up stagger-2">
+          <h2 class="text-xl font-bold mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center text-white">
+              <i class="fas fa-user"></i>
+            </span>
+            About Me
+          </h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            I'm Sheng Zhong, currently pursuing a PhD in Artificial Intelligence at
+            <a href="https://hust.edu.cn" target="_blank" class="text-primary-500 hover:underline">Huazhong University of Science and Technology (HUST)</a>,
+            under the supervision of
+            <a href="https://scholar.google.com/citations?user=O4PHMfQAAAAJ" target="_blank" class="text-primary-500 hover:underline">Prof. Qiang He</a>.
+          </p>
+          <p class="text-slate-600 leading-relaxed">
+            My primary research focus is on <strong class="text-primary-600">Edge Intelligence</strong>. I am passionate about exploring cutting-edge technologies at the intersection of artificial intelligence and edge computing. I'm always eager to learn new things, tackle challenging problems, and collaborate with like-minded researchers.
+          </p>
+        </section>
+
+        <!-- Education -->
+        <section id="education" class="glass-card rounded-2xl p-8 hover-card fade-in-up stagger-3">
+          <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center text-white">
+              <i class="fas fa-graduation-cap"></i>
+            </span>
+            Education
+          </h2>
+          <div class="space-y-6 pl-6 relative">
+            <!-- PhD -->
+            <div class="timeline-item relative pl-8 pb-6">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="font-semibold text-slate-800">PhD in Artificial Intelligence and Automation</h3>
+                  <p class="text-primary-500 font-medium">Huazhong University of Science and Technology</p>
+                </div>
+                <span class="text-sm text-slate-400 bg-primary-100 px-3 py-1 rounded-full">2025.06 - Now</span>
+              </div>
+            </div>
+            <!-- Master -->
+            <div class="timeline-item relative pl-8 pb-6">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="font-semibold text-slate-800">Master in Computer Science and Technology</h3>
+                  <p class="text-primary-500 font-medium">Huazhong University of Science and Technology</p>
+                </div>
+                <span class="text-sm text-slate-400 bg-primary-100 px-3 py-1 rounded-full">2024.09 - 2025.06</span>
+              </div>
+            </div>
+            <!-- Bachelor -->
+            <div class="timeline-item relative pl-8">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="font-semibold text-slate-800">Bachelor in Computer Science and Technology</h3>
+                  <p class="text-primary-500 font-medium">Huazhong University of Science and Technology</p>
+                </div>
+                <span class="text-sm text-slate-400 bg-primary-100 px-3 py-1 rounded-full">2020.09 - 2024.06</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- News -->
+        <section id="news" class="glass-card rounded-2xl p-8 hover-card fade-in-up stagger-4">
+          <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center text-white">
+              <i class="fas fa-fire"></i>
+            </span>
+            News
+          </h2>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4 p-4 rounded-xl glass-card">
+              <span class="badge text-white text-sm px-3 py-1 rounded-full font-medium whitespace-nowrap">2026.01</span>
+              <p class="text-slate-700">
+                🎉🎉🎉 <strong>Glasses</strong> has been accepted to <strong class="text-primary-600">The Web Conference 2026</strong>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Publications -->
+        <section id="publications" class="glass-card rounded-2xl p-8 hover-card fade-in-up stagger-5">
+          <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center text-white">
+              <i class="fas fa-file-alt"></i>
+            </span>
+            Publications
+          </h2>
+
+          <!-- Paper Card -->
+          <div class="flex gap-6 p-6 rounded-xl glass-card hover:border-primary-200 transition-all">
+            <div class="flex-shrink-0 w-48">
+              <div class="aspect-video rounded-lg gradient-bg flex items-center justify-center">
+                <i class="fas fa-glasses text-white text-4xl"></i>
+              </div>
+              <div class="mt-2 text-center">
+                <span class="text-sm font-semibold gradient-text">WWW 2026</span>
+              </div>
+            </div>
+            <div class="flex-grow">
+              <h3 class="font-bold text-slate-800 mb-2 hover:text-primary-500 transition-colors">
+                <a href="#" class="hover:underline">
+                  Glasses: Enabling Fast Environment-aware Few-Shot Learning via Device-Cloud Collaboration
+                </a>
+              </h3>
+              <p class="text-slate-600 mb-3">
+                Qiang He, <strong class="text-primary-600">Sheng Zhong</strong>, Jiazhen Yang, Feifei Chen, Hai Jin, Yun Yang
+              </p>
+              <div class="flex gap-4">
+                <a href="https://github.com/CGCL-codes/Glasses" target="_blank" class="inline-flex items-center gap-2 text-sm text-primary-500 hover:text-primary-600 transition-colors">
+                  <i class="fab fa-github"></i>
+                  Code
+                </a>
+                <a href="https://github.com/ss-Zhong/Focura" target="_blank" class="inline-flex items-center gap-2 text-sm text-primary-500 hover:text-primary-600 transition-colors">
+                  <i class="fas fa-database"></i>
+                  Dataset
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-8 text-slate-400 text-sm relative z-10">
+    <p>&copy; 2026 Sheng Zhong. Built with passion for Edge Intelligence.</p>
+  </footer>
+
+  <!-- Particle Animation Script -->
+  <script>
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Set canvas size
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Particle class
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() * 0.5 - 0.25;
+        this.speedY = Math.random() * 0.5 - 0.25;
+        this.opacity = Math.random() * 0.6 + 0.2;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        // Boundary check
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+      }
+
+      draw() {
+        ctx.fillStyle = `rgba(150, 30, 51, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // Create particles
+    const particles = [];
+    const particleCount = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    // Draw connections between nearby particles
+    function drawConnections() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
+            const opacity = (150 - distance) / 150 * 0.25;
+            ctx.strokeStyle = `rgba(150, 30, 51, ${opacity})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    // Animation loop
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      drawConnections();
+
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Mouse interaction
+    let mouse = { x: null, y: null };
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.x;
+      mouse.y = e.y;
+
+      // Push particles away from mouse
+      particles.forEach(particle => {
+        const dx = particle.x - mouse.x;
+        const dy = particle.y - mouse.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 100) {
+          const force = (100 - distance) / 100;
+          particle.x += dx * force * 0.03;
+          particle.y += dy * force * 0.03;
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
