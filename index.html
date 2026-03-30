@@ -67,9 +67,9 @@
     }
 
     .glass-card {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
       border: 1px solid rgba(255, 255, 255, 0.5);
       box-shadow: 0 8px 32px rgba(150, 30, 51, 0.06);
     }
@@ -198,14 +198,27 @@
 
   <!-- Navigation -->
   <nav class="fixed top-0 left-0 right-0 z-50 glass-card-navi" style="z-index: 50;">
-    <div class="max-w-6xl mx-auto px-6 py-4">
+    <div class="max-w-6xl mx-auto px-6 py-4 relative">
       <div class="flex items-center justify-between">
         <a href="#about"><img src="images/zhonglab.svg" alt="Zhong Lab" class="h-8"></a>
-        <div class="flex gap-8">
-          <a href="#about" class="nav-link text-slate-600 hover:text-primary-500 transition-colors">About</a>
-          <a href="#education" class="nav-link text-slate-600 hover:text-primary-500 transition-colors">Education</a>
-          <a href="#news" class="nav-link text-slate-600 hover:text-primary-500 transition-colors">News</a>
-          <a href="#publications" class="nav-link text-slate-600 hover:text-primary-500 transition-colors">Publications</a>
+        <button
+          id="mobile-menu-button"
+          type="button"
+          class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-slate-600 hover:text-primary-500 hover:bg-white/60 transition-colors"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+          aria-label="Toggle navigation menu"
+        >
+          <i id="mobile-menu-icon" class="fas fa-bars"></i>
+        </button>
+        <div
+          id="nav-menu"
+          class="hidden md:flex md:items-center gap-2 md:gap-8 absolute md:static top-full left-6 right-6 mt-3 md:mt-0 p-4 md:p-0 rounded-xl md:rounded-none bg-white/80 md:bg-transparent backdrop-blur-md md:backdrop-blur-none border border-white/70 md:border-0 shadow-lg md:shadow-none"
+        >
+          <a href="#about" class="nav-link block px-2 py-2 md:p-0 text-slate-600 hover:text-primary-500 transition-colors">About</a>
+          <a href="#education" class="nav-link block px-2 py-2 md:p-0 text-slate-600 hover:text-primary-500 transition-colors">Education</a>
+          <a href="#news" class="nav-link block px-2 py-2 md:p-0 text-slate-600 hover:text-primary-500 transition-colors">News</a>
+          <a href="#publications" class="nav-link block px-2 py-2 md:p-0 text-slate-600 hover:text-primary-500 transition-colors">Publications</a>
         </div>
       </div>
     </div>
@@ -494,6 +507,49 @@
         }
       });
     });
+
+    // Mobile navigation toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('nav-menu');
+    const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+    if (mobileMenuButton && mobileMenu && mobileMenuIcon) {
+      const closeMobileMenu = () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+        mobileMenuIcon.classList.remove('fa-xmark');
+        mobileMenuIcon.classList.add('fa-bars');
+      };
+
+      const openMobileMenu = () => {
+        mobileMenu.classList.remove('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', 'true');
+        mobileMenuIcon.classList.remove('fa-bars');
+        mobileMenuIcon.classList.add('fa-xmark');
+      };
+
+      mobileMenuButton.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('hidden')) {
+          openMobileMenu();
+        } else {
+          closeMobileMenu();
+        }
+      });
+
+      mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 768) {
+            closeMobileMenu();
+          }
+        });
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+          closeMobileMenu();
+        }
+      });
+    }
   </script>
 
 </body>
