@@ -1,0 +1,76 @@
+name: Get Citation Data
+
+on:
+  page_build:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Guard Checks
+        id: guard
+        env:
+          GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
+        run: |
+          if [ -z "${GOOGLE_SCHOLAR_ID}" ]; then
+            echo "skip=true" >> "${GITHUB_OUTPUT}"
+            echo "GOOGLE_SCHOLAR_ID is not set, skip this run."
+            exit 0
+          fi
+
+          if [ ! -d "google_scholar_crawler" ]; then
+            echo "skip=true" >> "${GITHUB_OUTPUT}"
+            echo "google_scholar_crawler directory does not exist, skip this run."
+            exit 0
+          fi
+
+          echo "skip=false" >> "${GITHUB_OUTPUT}"
+
+      - name: Setup Python
+        if: steps.guard.outputs.skip == 'false'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: google_scholar_crawler/requirements.txt
+
+      - name: Run Crawler
+        if: steps.guard.outputs.skip == 'false'
+        working-directory: ./google_scholar_crawler
+        env:
+          GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
+        run: |
+          pip install -r requirements.txt
+          python main.py
+
+      - name: Commit and Push Results
+        if: steps.guard.outputs.skip == 'false'
+        working-directory: ./google_scholar_crawler/results
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git init
+          git config --local user.name "${GITHUB_ACTOR}"
+          git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No citation data changes, skip commit."
+            exit 0
+          fi
+
+          git commit -m "Updated Citation Data"
+          remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push "${remote_repo}" HEAD:google-scholar-stats --force
